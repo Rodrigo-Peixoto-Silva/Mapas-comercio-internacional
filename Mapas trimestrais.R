@@ -3,13 +3,23 @@ rm(list = ls())
 # ============================================================
 # 0. PACOTES
 # ============================================================
-library(tidyverse)
-library(sf)
-library(rnaturalearth)
-library(rnaturalearthdata)
-library(readxl)
-library(tcltk)
-library(grid)
+pacotes <- c(
+  "tidyverse",
+  "sf",
+  "rnaturalearth",
+  "rnaturalearthdata",
+  "readxl",
+  "tcltk",
+  "grid"
+)
+
+faltantes <- pacotes[!pacotes %in% installed.packages()[, "Package"]]
+
+if (length(faltantes) > 0) {
+  install.packages(faltantes)
+}
+
+invisible(lapply(pacotes, library, character.only = TRUE))
 
 # Desativa s2 para garantir união dos polígonos globais
 sf::sf_use_s2(FALSE)
