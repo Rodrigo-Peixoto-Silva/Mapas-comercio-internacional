@@ -27,7 +27,7 @@ sf::sf_use_s2(FALSE)
 # ============================================================
 # 1. DIRETÓRIO DE TRABALHO
 # ============================================================
-possiveis_drives <- c("G:/", "H:/", "I:/")
+possiveis_drives <- c("C:/", "D:/", "E:/", "F:/", "G:/", "H:/", "I:/")
 
 caminho_relativo <- "Drives compartilhados/Macro Cepea/Cadeias/SOJA/Relatórios"
 
