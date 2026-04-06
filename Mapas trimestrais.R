@@ -27,7 +27,28 @@ sf::sf_use_s2(FALSE)
 # ============================================================
 # 1. DIRETÓRIO DE TRABALHO
 # ============================================================
-setwd("G:/Drives compartilhados/Macro Cepea/Cadeias/SOJA/Relatórios")
+possiveis_drives <- c("G:/", "H:/", "I:/")
+
+caminho_relativo <- "Drives compartilhados/Macro Cepea/Cadeias/SOJA/Relatórios"
+
+caminho_final <- NULL
+
+for (d in possiveis_drives) {
+  caminho_teste <- file.path(d, caminho_relativo)
+  
+  if (dir.exists(caminho_teste)) {
+    caminho_final <- caminho_teste
+    break
+  }
+}
+
+if (is.null(caminho_final)) {
+  stop("Não foi possível encontrar o diretório do projeto. Verifique o acesso ao Drive.")
+}
+
+setwd(caminho_final)
+
+message("Diretório definido como: ", caminho_final)
 
 # ============================================================
 # 2. FUNÇÃO PARA SELEÇÃO INTERATIVA DE ANO E TRIMESTRE
